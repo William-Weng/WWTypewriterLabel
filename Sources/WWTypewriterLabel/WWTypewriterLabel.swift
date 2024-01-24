@@ -132,7 +132,7 @@ private extension WWTypewriterLabel {
     /// - Parameter fps: Int
     func timerStart(fps: Int = 10) {
         timerStop()
-        timer = CADisplayLink(target: self, selector: #selector(self.typing(_:)))
+        timer = CADisplayLink._build(target: self, selector: #selector(self.typing(_:)))
         timer?.preferredFramesPerSecond = fps
         timer?._fire()
     }

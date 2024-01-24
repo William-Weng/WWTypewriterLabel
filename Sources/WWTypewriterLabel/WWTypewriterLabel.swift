@@ -34,14 +34,12 @@ public extension WWTypewriterLabel {
     /// [停止打字機顯示](https://blog.csdn.net/ajwdwl/article/details/52851043)
     /// - Parameter isShowFull: 是否完整顯示
     func stop(isShowFull: Bool = false) {
+        
         currentIndex = 0
         loopCount = 0
         timerStop()
         
-        switch stringType {
-        case .general(let text): self.text = text
-        case .attributed(let attributedText): self.attributedText = attributedText
-        }
+        if (isShowFull) { showFullAciton() }
     }
 }
 
@@ -156,6 +154,14 @@ private extension WWTypewriterLabel {
             self.currentIndex = 0
             self.loopCount -= 1
             if (loopCount == 0) { stop() }
+        }
+    }
+    
+    /// 顯示完整字串
+    func showFullAciton() {
+        switch stringType {
+        case .general(let text): self.text = text
+        case .attributed(let attributedText): self.attributedText = attributedText
         }
     }
 }

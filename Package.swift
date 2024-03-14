@@ -14,7 +14,7 @@ let package = Package(
     dependencies: [
     ],
     targets: [
-        .target(name: "WWTypewriterLabel", dependencies: []),
+        .target(name: "WWTypewriterLabel", resources: [.copy("Privacy")]),
     ],
     swiftLanguageVersions: [
         .v5
